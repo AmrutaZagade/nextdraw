@@ -72,6 +72,14 @@ export const drawElements = (ctx, element) => {
         ctx.fillText(lines[i], element.x1, element.y1 + 6 + (i * lineheight));
       break;
 
+       case "image":
+      const image = new Image();
+      image.src = element.src;
+      image.onload = function() {
+        ctx.drawImage(image, element.x1, element.y1, element.width, element.height);
+      };
+      break;
+
     default:
       break;
   }
